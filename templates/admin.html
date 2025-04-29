@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiniChan - Admin Panel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <button id="logoutButton" style="float:right;">Logout</button>
+  </header>
+
+  <section class="admin-login" id="loginSection">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <input type="password" id="password" placeholder="Admin Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+  <section class="admin-posts" id="postsSection" style="display:none;">
+    <h2>All Posts</h2>
+    <div id="postsContainer"></div>
+  </section>
+
+  <script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

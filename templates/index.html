@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiniChan - Forum</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-comments"></i> 4chanSimu</h1>
+    <p>ai proctored forum-site</p>
+    <button id="themeToggleBtn"><i class="fas fa-sun"></i></button>
+  </header>
+
+  <section class="board-selector">
+    <label for="board">Choose a board:</label>
+    <select id="board">
+      <option value="/b/">/b/ (NSFW allowed)</option>
+      <option value="/pol/">/pol/ (No NSFW)</option>
+    </select>
+  </section>
+
+  <section class="create-board-form">
+    <h2>Create a New Board</h2>
+    <form id="createBoardForm">
+      <input type="text" id="board_name" name="board_name" placeholder="Board Name" required>
+      <label for="nsfw">NSFW:</label>
+      <input type="checkbox" id="nsfw" name="nsfw">
+      <button type="submit" class="btn-tech">Create Board</button>
+    </form>
+  </section>
+
+  <section class="post-form">
+    <h2>New Post</h2>
+    <form id="newPostForm">
+      <input type="text" id="user_id" name="user_id" placeholder="User ID" required>
+      <textarea id="content" name="content" placeholder="Write your post..." required></textarea>
+      <input type="file" id="image" name="image" accept="image/*">
+      <button type="submit" class="btn-tech">Post</button>
+    </form>
+  </section>
+
+  <section class="posts-list">
+    <h2>Posts</h2>
+    <button id="clearHistoryBtn" style="margin-bottom:1rem;">Clear History</button>
+    <div id="postsContainer"></div>
+  </section>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <button id="geminiChatBtn" class="btn-tech" style="position:fixed;bottom:2rem;right:2rem;z-index:1000;">Gemini 2.0 Chat</button>
+  <div id="geminiChatWindow" style="display:none;position:fixed;bottom:5rem;right:2rem;width:350px;max-width:90vw;height:450px;z-index:1001;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.2);overflow:hidden;flex-direction:column;">
+    <div style="background:#333;color:#fff;padding:0.5rem 1rem;display:flex;justify-content:space-between;align-items:center;">
+      <span>Gemini 2.0 Flash</span>
+      <button id="closeGeminiChat" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">&times;</button>
+    </div>
+    <div id="geminiChatMessages" style="flex:1;overflow-y:auto;padding:1rem;height:320px;"></div>
+    <form id="geminiChatForm" style="display:flex;padding:0.5rem;border-top:1px solid #eee;">
+      <input type="text" id="geminiChatInput" placeholder="Type your message..." style="flex:1;padding:0.5rem;border-radius:5px;border:1px solid #ccc;">
+      <button type="submit" style="margin-left:0.5rem;padding:0.5rem 1rem;background:#4CAF50;color:#fff;border:none;border-radius:5px;">Send</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -26,11 +26,7 @@ A lightweight, anonymous discussion forum inspired by 4chan, built with a Flask 
 - [Notes](#notes)
 - [Future Improvements](#future-improvements)
 - [License](#license)
-
-## Demo
-
-_Coming soon!_
-
+- 
 ## Getting Started
 
 Clone this repository and follow the installation steps below.

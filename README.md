@@ -31,10 +31,7 @@ A lightweight, anonymous discussion forum inspired by 4chan, built with a Flask 
 
 Clone this repository and follow the installation steps below.
 
-```bash
-git clone https://github.com/TheSuper-Media3004/the4chan.git
-cd the4chan
-```
+
 
 ## Prerequisites
 
